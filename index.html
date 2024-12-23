@@ -363,28 +363,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     gsap.to(".santa-sleigh", {
-        duration: 12,  // 더 느린 이동
-        x: 2200,
-        y: "-=100",
-        ease: "power1.inOut",
-        repeat: -1,
-        delay: 2,
-        onUpdate: function() {
-            if (Math.random() > 0.98) {  // 더 적은 빈도로 선물 드롭
-                const sleigh = document.querySelector(".santa-sleigh");
-                const sleighBox = sleigh.getBoundingClientRect();
-                dropGift(sleighBox.x + 60, sleighBox.y + 40);
-                
-                // 연속으로 2-3개의 선물 드롭
-                if (Math.random() > 0.5) {
-                    setTimeout(() => dropGift(sleighBox.x + 65, sleighBox.y + 40), 100);
-                    if (Math.random() > 0.5) {
-                        setTimeout(() => dropGift(sleighBox.x + 55, sleighBox.y + 40), 200);
-                    }
-                }
+    duration: 12,  // Slower movement
+    x: 2200,       // Move to the right end
+    y: "-=100",
+    ease: "power1.inOut",
+    repeat: -1,
+    delay: 2,
+    onUpdate: function () {
+        const sleighX = gsap.getProperty(".santa-sleigh", "x"); // GSAP-based X position
+        const sleighY = gsap.getProperty(".santa-sleigh", "y"); // GSAP-based Y position
+
+        if (Math.random() > 0.9) {  // Drop gifts more frequently
+            const numGifts = Math.floor(Math.random() * 5) + 5; // Drop 5-9 gifts
+            for (let i = 0; i < numGifts; i++) {
+                setTimeout(() => dropGift(sleighX + (Math.random() * 20 - 10), sleighY + 40), i * 50); // Spread drops
             }
         }
-    });
+    }
+});
+
     
     gsap.to(".santa-sleigh", {
         duration: 2,
