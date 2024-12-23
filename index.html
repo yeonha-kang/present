@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fullscreen Christmas Scene</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        background: linear-gradient(to bottom, #0a0a2a, #151522);
+        overflow: hidden;
+        width: 100vw;
+        height: 100vh;
+    }
+    svg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        visibility: hidden;
+    }
+    @media (max-width: 768px) {
+        .message {
+            font-size: 3rem;
+        }
+        .tree {
+            transform: translate(710, 100) scale(1.2);
+        }
+    }
+    .tree-path {
+        fill: none;
+        stroke: #2d6a4f;
+        stroke-width: 2;
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+    }
+    .ornament {
+        fill: #ffeb3b;
+        opacity: 0;
+    }
+    .message {
+        font-family: 'Pacifico', cursive;
+        font-size: 5rem;
+        text-anchor: middle;
+        fill: white;
+        opacity: 0;
+        text-shadow: 0 0 5px #FFD700, 
+               0 0 10px #FFD700, 
+               0 0 20px #FFD700, 
+               0 0 30px #FFEA00, 
+               0 0 40px #FFEA00, 
+               0 0 50px #FFEA00;
+    }
+    .snow {
+        fill: white;
+        opacity: 0;
+    }
+    .hill {
+        fill: #fff;
+        opacity: 0.9;
+    }
+    .gift {
+        opacity: 0;
+    }
+    </style>
+</head>
+<body>
+<svg viewBox="0 0 1920 1080">
+    <!-- Snow-covered hill -->
+    <path class="hill" d="M0,700 Q960,580 1920,700 L1920,1080 L0,1080 Z"/>
+    
+    <g class="tree" transform="translate(710, 0) scale(1.5)">
+        <!-- Tree shape -->
+        <path class="tree-path" d="
+            M200,180 
+            C220,250 340,320 280,370
+            C380,420 360,470 300,470
+            C420,520 400,570 300,570
+            L100,570
+            C0,570 -20,520 100,470
+            C40,470 20,420 120,370
+            C60,320 180,250 200,180
+            Z"/>
+        
+        <!-- Trunk -->
+        <path class="trunk" 
+              d="M160,570 C160,600 160,630 160,650 C160,660 240,660 240,650 C240,630 240,600 240,570" 
+              fill="none" stroke="#8B4513" stroke-width="2" 
+              stroke-dasharray="300" stroke-dashoffset="300"/>
+        
+        <!-- Ornaments -->
+        <circle class="ornament" cx="200" cy="270" r="6"/>
+        <circle class="ornament" cx="170" cy="320" r="6"/>
+        <circle class="ornament" cx="230" cy="320" r="6"/>
+        <circle class="ornament" cx="140" cy="370" r="6"/>
+        <circle class="ornament" cx="260" cy="370" r="6"/>
+        <circle class="ornament" cx="120" cy="420" r="6"/>
+        <circle class="ornament" cx="280" cy="420" r="6"/>
+        <circle class="ornament" cx="100" cy="470" r="6"/>
+        <circle class="ornament" cx="300" cy="470" r="6"/>
+        <circle class="ornament" cx="140" cy="520" r="6"/>
+        <circle class="ornament" cx="260" cy="520" r="6"/>
+
+        <!-- Star -->
+        <path class="star" fill="#FFD700" opacity="0" transform="translate(169,145) scale(3)"
+              d="M10 0L13.09 6.58L20 7.64L15 12.76L16.18 20L10 16.58L3.82 20L5 12.76L0 7.64L6.91 6.58Z"/>
+
+        <g class="sparkles"></g>
+    </g>
+
+    <!-- Santa and Sleigh -->
+    <g class="santa-sleigh" transform="translate(-200,200)">
+        <!-- Sleigh -->
+        <path d="M40,30 
+                 C20,30 10,35 10,45 
+                 C10,55 20,60 40,60 
+                 L90,60 
+                 C110,60 120,55 120,45 
+                 C120,35 110,30 90,30 
+                 Z" 
+              fill="#8B4513"/>
+        <path d="M10,45 
+                 Q0,45 0,60 
+                 L130,60 
+                 Q130,45 120,45" 
+              fill="#A0522D"/>
+        
+        <!-- Santa -->
+        <ellipse cx="70" cy="35" rx="15" ry="18" fill="#FF0000"/>
+        <circle cx="70" cy="25" r="12" fill="#FFE4E1"/>
+        <circle cx="65" cy="28" r="3" fill="#FFB6C1" opacity="0.6"/>
+        <circle cx="75" cy="28" r="3" fill="#FFB6C1" opacity="0.6"/>
+        <circle cx="65" cy="24" r="2" fill="#000000"/>
+        <circle cx="75" cy="24" r="2" fill="#000000"/>
+        <path d="M67,30 Q70,33 73,30" fill="none" stroke="#000000" stroke-width="1.5"/>
+        <path d="M58,20 
+                 Q70,15 82,20 
+                 Q78,10 70,8 
+                 Q62,10 58,20" 
+              fill="#FF0000"/>
+        <circle cx="70" cy="8" r="4" fill="#FFFFFF"/>
+        <rect x="60" y="35" width="20" height="3" fill="#4A4A4A"/>
+        <rect x="67" y="34" width="6" height="5" fill="#FFD700"/>
+        
+        <!-- Rudolph -->
+        <g class="rudolph" transform="translate(110,-10)">
+            <ellipse cx="30" cy="40" rx="20" ry="12" fill="#8B4513"/>
+            <circle cx="45" cy="35" r="10" fill="#8B4513"/>
+            <circle cx="48" cy="32" r="2.5" fill="#000000"/>
+            <circle cx="54" cy="37" r="4" fill="#FF0000"/>
+            <circle cx="54" cy="37" r="1.5" fill="#FF6B6B"/>
+            <path d="M42,25 L38,20 L42,22 L45,18" fill="none" stroke="#8B4513" stroke-width="2"/>
+            <path d="M47,25 L51,20 L48,22 L52,18" fill="none" stroke="#8B4513" stroke-width="2"/>
+            <line x1="20" y1="50" x2="25" y2="45" stroke="#8B4513" stroke-width="3"/>
+            <line x1="30" y1="50" x2="35" y2="45" stroke="#8B4513" stroke-width="3"/>
+        </g>
+        
+        <!-- Reins -->
+        <path d="M45,37 C50,35 55,35 65,37" fill="none" stroke="#8B4513" stroke-width="1.5"/>
+    </g>
+
+    <g class="falling-gifts"></g>
+<g class="snowflakes"></g>
+
+    <text class="message" x="960" y="900">Merry Christmas!</text>
+</svg>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    gsap.set("svg", {visibility: "visible"});
+    
+    const tl = gsap.timeline();
+
+    // Star animation
+    tl.to(".star", {
+        duration: 1.5,
+        opacity: 1,
+        scale: 4,
+        rotation: 720,
+        transformOrigin: "50% 50%",
+        ease: "back.out(1.7)"
+    })
+    
+    // Draw tree
+    .to(".tree-path", {
+        duration: 3,
+        strokeDashoffset: 0,
+        ease: "power1.inOut"
+    })
+    
+    // Fill tree
+    .to(".tree-path", {
+        duration: 1.5,
+        fill: "#2d6a4f",
+        ease: "none"
+    })
+    
+    // Draw trunk
+    .to(".trunk", {
+        duration: 1,
+        strokeDashoffset: 0,
+        fill: "#8B4513",
+        ease: "power1.inOut"
+    })
+    
+    // Show ornaments
+    .to(".ornament", {
+        duration: 0.5,
+        opacity: 1,
+        scale: 1,
+        stagger: {
+            each: 0.2,
+            from: "random"
+        },
+        ease: "back.out(1.7)"
+    })
+
+    // Show gifts
+    .to(".gift", {
+        duration: 1,
+        opacity: 1,
+        y: -20,
+        stagger: {
+            each: 0.3,
+            from: "random"
+        },
+        ease: "bounce.out"
+    });
+
+    // Star twinkling
+    gsap.to(".star", {
+        duration: 1.5,
+        opacity: 0.7,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut"
+    });
+
+    // Create snowflakes
+    const snowContainer = document.querySelector('.snowflakes');
+    for(let i = 0; i < 200; i++) {
+        const snowflake = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        snowflake.setAttribute("r", Math.random() * 2.5 + 1);
+        snowflake.setAttribute("fill", "white");
+        snowflake.style.opacity = Math.random() * 0.6 + 0.4;
+        snowContainer.appendChild(snowflake);
+        
+        const startX = Math.random() * 1920;
+        const startY = -10;
+        
+        gsap.set(snowflake, { x: startX, y: startY });
+        gsap.to(snowflake, {
+            duration: Math.random() * 5 + 5,
+            y: 1090,
+            x: `+=${Math.random() * 200 - 100}`,
+            ease: "none",
+            repeat: -1,
+            delay: -Math.random() * 5
+        });
+    }
+
+    // Sparkle effects
+    const colors = ["#FFD700", "#FF6B6B", "#4ECDC4", "#45B7D1", "#96CEB4"];
+    const container = document.querySelector('.sparkles');
+    
+    for(let i = 0; i < 80; i++) {
+        const particle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        particle.setAttribute("r", "2");
+        particle.setAttribute("fill", colors[Math.floor(Math.random() * colors.length)]);
+        container.appendChild(particle);
+        
+        const progress = i / 80;
+        const width = 60 + (progress * 240);
+        const centerOffset = progress * 10;
+        const x = 200 + centerOffset + (Math.random() - 0.5) * width;
+        const y = 220 + (progress * 350);
+        
+        const leftBound = 200 - width/2 + centerOffset;
+        const rightBound = 200 + width/2 + centerOffset;
+        const adjustedX = Math.max(leftBound, Math.min(rightBound, x));
+        
+        gsap.set(particle, {
+            x: adjustedX,
+            y: y,
+            scale: Math.random() * 1.5 + 0.5
+        });
+        
+        gsap.to(particle, {
+            duration: "random(1.5, 3)",
+            y: "+=20",
+            x: "+=random(-15, 15)",
+            opacity: gsap.utils.random(0.3, 1),
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+            delay: Math.random() * 2
+        });
+    }
+
+    // Show message
+    tl.to(".message", {
+        duration: 1,
+        opacity: 1,
+        y: -20,
+        ease: "power1.out"
+    });
+
+    // 선물 떨어뜨리기 함수
+    function dropGift(x, y) {
+        const giftGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        const colors = ["#FF6347", "#4169E1", "#32CD32", "#FFD700", "#FF69B4"];
+        const giftColor = colors[Math.floor(Math.random() * colors.length)];
+        const ribbonColor = colors[Math.floor(Math.random() * colors.length)];
+        
+        // 선물 상자
+        const box = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+        box.setAttribute("width", 30);
+        box.setAttribute("height", 30);
+        box.setAttribute("fill", giftColor);
+        box.setAttribute("rx", 4);
+        box.setAttribute("ry", 4);
+        
+        // 리본 가로
+        const ribbonH = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+        ribbonH.setAttribute("width", 30);
+        ribbonH.setAttribute("height", 6);
+        ribbonH.setAttribute("fill", ribbonColor);
+        ribbonH.setAttribute("y", 12);
+        
+        // 리본 세로
+        const ribbonV = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+        ribbonV.setAttribute("width", 6);
+        ribbonV.setAttribute("height", 30);
+        ribbonV.setAttribute("fill", ribbonColor);
+        ribbonV.setAttribute("x", 12);
+        
+        giftGroup.appendChild(box);
+        giftGroup.appendChild(ribbonH);
+        giftGroup.appendChild(ribbonV);
+        document.querySelector('.falling-gifts').appendChild(giftGroup);
+
+        const rotation = Math.random() * 360;
+        gsap.set(giftGroup, { 
+            x: x, 
+            y: y,
+            rotation: rotation
+        });
+
+        gsap.to(giftGroup, {
+            duration: Math.random() * 3 + 2,
+            y: 1080,
+            x: x + (Math.random() * 200 - 100),
+            rotation: rotation + (Math.random() * 720 - 360),
+            ease: "power1.in",
+            onComplete: () => giftGroup.remove()
+        });
+    }
+
+    gsap.to(".santa-sleigh", {
+        duration: 12,  // 더 느린 이동
+        x: 2200,
+        y: "-=100",
+        ease: "power1.inOut",
+        repeat: -1,
+        delay: 2,
+        onUpdate: function() {
+            if (Math.random() > 0.98) {  // 더 적은 빈도로 선물 드롭
+                const sleigh = document.querySelector(".santa-sleigh");
+                const sleighBox = sleigh.getBoundingClientRect();
+                dropGift(sleighBox.x + 60, sleighBox.y + 40);
+                
+                // 연속으로 2-3개의 선물 드롭
+                if (Math.random() > 0.5) {
+                    setTimeout(() => dropGift(sleighBox.x + 65, sleighBox.y + 40), 100);
+                    if (Math.random() > 0.5) {
+                        setTimeout(() => dropGift(sleighBox.x + 55, sleighBox.y + 40), 200);
+                    }
+                }
+            }
+        }
+    });
+    
+    gsap.to(".santa-sleigh", {
+        duration: 2,
+        y: "+=20",
+        ease: "sine.inOut",
+        repeat: -1,
+        yoyo: true
+    });
+});
+</script>
+</body>
+</html>
